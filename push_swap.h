@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:14 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/01/20 17:56:38 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/01/24 19:42:12 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_list
 	struct s_list	*prev;
 }	t_list;
 
-// ANALYZING ARGUMENTS
+// PREPARING/ANALYZING ARGUMENTS
 int	ft_analyze_av(char *av);
 int	*ft_push_av(char *av);
+char	**ft_build(int ac, char **av);
 
 // CREATING STACK
 void	ft_add_av(char *av, t_list **stack);
@@ -40,6 +41,8 @@ t_list	*ft_lstlast(t_list *lst);
 long	ft_atol(char *nbr);
 int	ft_issign(char sign);
 int	ft_isnumber(char nbr);
+char	**ft_split(char *str);
+char	*ft_strjoin(char *str1, char *str2);
 
 // ERROR/FREE
 void	ft_freelst(t_list **lst);

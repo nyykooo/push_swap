@@ -15,6 +15,7 @@ int	main(int ac, char **av)
 {
 	int	i;
 	t_list *stackA ;
+	char **mega;
 
 	i = 1;
 	stackA = NULL;
@@ -23,17 +24,9 @@ int	main(int ac, char **av)
 		write(2,"Error", 5);
 		return 0;
 	}
+	mega = ft_build(ac, av);
 	while (i < ac)
-	{ 
-		if (ft_analyze_av(av[i]) == 0) // retorno de erro problemas na string
-		{
-			write(2,"Error\n", 6);
-			ft_freelst(&stackA); //apagar stack
-			exit(0);
-		}
-		ft_add_av(av[i], &stackA); //criacao da stack
-		i++;
-	}
+		ft_add_av(av[i++], &stackA); //criacao da stack
 
 //PRINTANDO VALORES DENTRO DA STACK
 	print_list(stackA);

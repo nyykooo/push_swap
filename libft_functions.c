@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atol.c                                             :+:      :+:    :+:   */
+/*   libft_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:20:54 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/01/20 18:28:33 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:14:25 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,53 @@ long		ft_atol(char *nbr)
 	return (res * signal);
 }
 
-// #include <stdio.h>
+char	*ft_strjoin(char *str1, char *str2)
+{
+	int	size;
+	char	*new;
+	int	i;
+	
+	size = (ft_strlen(str1) + ft_strlen(str2));
+	if (!str1 && !str2)
+		return NULL;
+	new = (char *)malloc(sizeof(char)*(size + 2));//space + null
+	if (!new)
+		return NULL;
+	i = 0;
+	while (str1[i] != '\0');
+	{
+		new [i] = str1[i];
+		i++;
+	}
+	new[i] = 32;
+	i = 0;
+	while (str2 != '\0')
+	{
+		new[i] = str2[i];
+		i++;
+	}
+	new[i] == '\0';
+	return (new);
+}
 
-// int	main(void){
-// 	char *nbr = "321651";
+int	ft_count_words(char *str)
+{
+	int	i;
+	int	count;
+	
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == 32)
+			i++;
+		if (str[i] == '\0')
+			break ;
+	}
+}
 
-// 	int number = atoi(nbr);
-
-// 	printf("%d", number);
-// }
+char	**ft_split(char *str)
+{
+	int	i;
+	int	size;
+	char **stack;
+}
