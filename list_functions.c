@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:16 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/03 17:59:01 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:40:22 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ void	lst_add(t_list **lst, long number)
 		ft_freelst(lst);
 		return;
 	}
-		if (!*lst)
+	new->content = number;
+	new->prev = NULL;
+	new->next = NULL;
+	new->index = 0;
+	if (!(*lst))
     {
         *lst = new;
         return ;
     }
-	new->content = number;
-	new->index = 0;
 	lst_add_back(lst, new);
 }
 
@@ -49,12 +51,12 @@ void	lst_add_back(t_list **lst, t_list *new)
 
     if (!new) 
         return ;
-    temp = ft_lstlast(*lst);
-    if (!temp)
+    if (!*lst)
     {
         *lst = new;
         return ;
     }
+    temp = ft_lstlast(*lst);
     temp->next = new;
 }
 
@@ -63,6 +65,8 @@ void	ft_freelst(t_list **lst)
 	t_list	*temp;
 	t_list	*head;
 
+	if (!lst)
+		return ;
 	if (*lst)
 	{	
 		head = *lst;

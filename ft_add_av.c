@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:35:17 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/03 15:31:30 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:13:04 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ void	ft_add_av(char *av, t_list **stack)
 		ft_error(stack); //free stack if exists and exit
 	else
 		lst_add(stack, ft_atol(av)); //include nbr at the end of table
+		//ft_stackadd(ft_atol(av), *stack);
 }
