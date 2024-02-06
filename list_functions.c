@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:16 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/05 16:40:22 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:34:07 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,30 @@ void	lst_add_back(t_list **lst, t_list *new)
     temp->next = new;
 }
 
-void	ft_freelst(t_list **lst)
+t_list	*find_bigger(t_list *list)
 {
-	t_list	*temp;
-	t_list	*head;
+	t_list	*bigger;
 
-	if (!lst)
-		return ;
-	if (*lst)
-	{	
-		head = *lst;
-		while(head)
-		{
-			temp = head;
-			head = head->next;
-			free(temp);
-		}
+	bigger = list;
+	while (list->next)
+	{
+		if (bigger->content < list->content)
+			bigger = list;
+		list = list->next;
 	}
-	*lst = NULL;
-	free(lst);
+	return (bigger);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst->index = i;
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
