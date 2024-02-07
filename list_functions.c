@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:16 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/06 18:34:07 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/07 19:02:06 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,6 @@ void	lst_add_back(t_list **lst, t_list *new)
     }
     temp = ft_lstlast(*lst);
     temp->next = new;
-}
-
-t_list	*find_bigger(t_list *list)
-{
-	t_list	*bigger;
-
-	bigger = list;
-	while (list->next)
-	{
-		if (bigger->content < list->content)
-			bigger = list;
-		list = list->next;
-	}
-	return (bigger);
 }
 
 int	ft_lstsize(t_list *lst)

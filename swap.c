@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 12:52:39 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/07 20:53:54 by ncampbel         ###   ########.fr       */
+/*   Created: 2024/02/07 18:29:49 by ncampbel          #+#    #+#             */
+/*   Updated: 2024/02/07 18:30:27 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	swap(t_list **stack)
 {
-	t_list **stack_a;
+	long temp;
 
-	if (ac < 2)
-		return (0);
-	stack_a = (t_list **)malloc(sizeof(t_list*));
-	if (!stack_a)
-		return (1);
-	*stack_a = NULL;
-	if (ac == 2)
-		handle_2_args(av, stack_a);
-	if (ac > 2)
-		handle_many_args(ac, av, stack_a);
-	sort_list(stack_a);
-	ft_print_list(*stack_a);
-	ft_freelst(stack_a);
-	return 1;
+	temp = (*stack)->content;
+	(*stack)->content = (*stack)->next->content;
+	(*stack)->next->content = temp;
+}
+
+void    sa(t_list **stack_a)
+{
+    swap(stack_a);
+    write(1, "sa\n", 3);
+}
+
+void    sb(t_list **stack_b)
+{
+    swap(stack_b);
+    write(1, "sb\n", 3);
+}
+
+void    ss(t_list **stack_a, t_list **stack_b)
+{
+    swap(stack_a);
+    swap(stack_b);
+    write(1, "ss\n", 3);
 }
