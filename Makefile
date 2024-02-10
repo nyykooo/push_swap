@@ -6,7 +6,7 @@
 #    By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 09:59:57 by ncampbel          #+#    #+#              #
-#    Updated: 2024/02/08 19:07:51 by ncampbel         ###   ########.fr        #
+#    Updated: 2024/02/10 17:26:38 by ncampbel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC= cc
 CFLAGS= -Wall -Wextra -Werror -g
 SRC= push_swap.c analyze_arguments.c ft_add_av.c ft_atol.c ft_free_error.c \
      ft_print_list.c handle_arguments.c list_functions.c push.c rotate.c \
-	 reverse_rotate.c swap.c sort_list.c dup_sorted.c
+	 reverse_rotate.c swap.c sort_list.c dup_sorted.c radix_sort.c
 OBJ= $(SRC:.c=.o)
 EXEC= push_swap
 LIBFT= libft/libft.a

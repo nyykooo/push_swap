@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:48:03 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/09 22:54:02 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:49:42 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ void	sort_list(t_list **list)
 		sort_5(list, &stack_b);
 	else
 	{
-		get_index(*list);
+		index_stack(list);
 		radix_sort(list, &stack_b);
-		ft_freelst(&stack_b);
+		if (stack_b)
+			ft_freelst(&stack_b);
 		return ;
 	}
 }
@@ -119,34 +120,69 @@ t_list	*find_bigger_or_smaller(t_list *list, int difference)
 
 void	index_stack(t_list **stack)
 {
-	t_list	*head;
-	int		index;
 
-	index = 0;
-	head = get_next_min(stack);
-	while (head)
-	{ 		
-		head->index = index++;
-		head = get_next_min(stack);
+	int		i;
+	long	min_found;
+	t_list	*min_elmt;
+
+	min_found = -2147483649;
+	i = 0;
+	while (i < ft_lstsize(*stack))
+	{
+		min_elmt = get_next_min(stack);
+		min_elmt->index = i;
+		min_found = min_elmt->content;
+		i++;
 	}
+	// t_list	*head;
+	// int		index;
+
+	// index = 0;
+	// head = get_next_min(stack);
+	// while (head)
+	// { 		
+	// 	head->index = index++;
+	// 	head = get_next_min(stack);
+	// }
 }
 
 t_list	*get_next_min(t_list **stack)
 {
-	t_list	*head;
-	t_list	*min;
-	bool 	first_run;
+	t_list	*current;
+	t_list	*min_elmt;
+	int		min_found;
 
-	head = *stack;
-	first_run = true;
-	min = NULL;
-	while (head)
+	if (!*stack)
+		return (0);
+	current = *stack;
+	min_found = 2147483647;
+	min_elmt = *stack;
+	while (current)
 	{
-		if ((head->index = -1) && (first_run || head->content < min->content))
+		if (current->content > -2147483649 && current->content <= min_found)
 		{
-			min = head;
-			first_run = false;
+			min_found = current->content;
+			min_elmt = current;
 		}
+		current = current->next;
 	}
-	return (min);
+	return (min_elmt);
+
+	// t_list	*head;
+	// t_list	*min;
+	// bool 	first_run;
+
+	// head = *stack;
+	// first_run = true;
+	// min = NULL;
+	// while (head)
+	// {
+	// 	if ((head->index == -1) && (first_run || head->content < min->content))
+	// 	{
+	// 		min = head;
+	// 		first_run = false;
+	// 	}
+	// 	head = head->next;
+	// }
+	// return (min);
 }

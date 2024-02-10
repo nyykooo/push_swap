@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:54:01 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/09 16:44:17 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:11:14 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_list	*ft_lstlast(t_list *lst);
 void	lst_add_back(t_list **lst, t_list *new);
 t_list	*find_bigger_or_smaller(t_list *list, int difference);
 int	ft_lstsize(t_list *lst);
+void	index_stack(t_list **stack);
+t_list	*get_next_min(t_list **stack);
 
 // PRINT FUNCTIONS
 void	ft_print_list(t_list *stack);
@@ -56,6 +58,7 @@ void	sort_3(t_list **list);
 void	sort_4(t_list **list_a, t_list **list_b);
 void	sort_5(t_list **list_a, t_list **list_b);
 bool    is_sorted(t_list *stack);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 // SUBJECT FUNCTIONS
 void	reverse_rotate(t_list **stack);
