@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:48:08 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/07 18:57:16 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:57:50 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	push(t_list **origin_stack, t_list **destiny_stack)
 
 void    pa(t_list **stack_a, t_list **stack_b)
 {
-    push(stack_a, stack_b);
+    push(stack_b, stack_a);
     write(1, "pa\n", 3);
 }
 
 void    pb(t_list **stack_a, t_list **stack_b)
 {
-    push(stack_b, stack_a);
+    push(stack_a, stack_b);
     write(1, "pb\n", 3);
 }

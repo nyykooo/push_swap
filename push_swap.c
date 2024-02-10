@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:52:39 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/07 20:53:54 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:52:37 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,13 @@ int	main(int ac, char **av)
 		handle_2_args(av, stack_a);
 	if (ac > 2)
 		handle_many_args(ac, av, stack_a);
+	if (is_sorted(*stack_a) == true)
+	{
+		ft_freelst(stack_a);
+		return (0);
+	}
 	sort_list(stack_a);
-	ft_print_list(*stack_a);
+	// ft_print_list(*stack_a);
 	ft_freelst(stack_a);
 	return 1;
 }

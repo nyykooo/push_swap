@@ -6,16 +6,16 @@
 #    By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 09:59:57 by ncampbel          #+#    #+#              #
-#    Updated: 2024/02/07 20:58:59 by ncampbel         ###   ########.fr        #
+#    Updated: 2024/02/08 19:07:51 by ncampbel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap.a
 CC= cc
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -g
 SRC= push_swap.c analyze_arguments.c ft_add_av.c ft_atol.c ft_free_error.c \
      ft_print_list.c handle_arguments.c list_functions.c push.c rotate.c \
-	 reverse_rotate.c swap.c sort_list.c
+	 reverse_rotate.c swap.c sort_list.c dup_sorted.c
 OBJ= $(SRC:.c=.o)
 EXEC= push_swap
 LIBFT= libft/libft.a

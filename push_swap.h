@@ -6,13 +6,14 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:54:01 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/07 20:45:01 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:44:17 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -29,6 +30,7 @@ void	ft_freelst(t_list **lst);
 int	ft_analyze_av(char *av);
 long ft_atol(const char *nbr);
 int	arg_len(char **av);
+bool    is_dup(t_list **list);
 
 
 // HANDLE ARGUMENTS FUNCTIONS
@@ -52,6 +54,8 @@ void	ft_print_list(t_list *stack);
 void	sort_list(t_list **list);
 void	sort_3(t_list **list);
 void	sort_4(t_list **list_a, t_list **list_b);
+void	sort_5(t_list **list_a, t_list **list_b);
+bool    is_sorted(t_list *stack);
 
 // SUBJECT FUNCTIONS
 void	reverse_rotate(t_list **stack);

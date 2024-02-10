@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:18:55 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/06 16:49:21 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:48:57 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,8 @@ void	ft_error(t_list **stack)
 {
 	write(2, "Error\n", 6);
 	if (stack)
-		ft_free(*stack);
+		ft_freelst(stack);
 	exit(0);
-}
-
-void	ft_free(t_list *stack)
-{
-	t_list *temp;
-
-	while (stack)
-	{
-		temp = stack;
-		stack = stack->next;
-		free(temp);
-	}
 }
 
 void	ft_freemega(char **str)

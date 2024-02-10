@@ -1,24 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 14:54:03 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/08 19:56:05 by ncampbel         ###   ########.fr       */
+/*   Created: 2024/02/09 17:30:39 by ncampbel          #+#    #+#             */
+/*   Updated: 2024/02/09 17:30:57 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_list(t_list *stack)
-{
-	if(stack == NULL)
-		return ;
-	while (stack)
-	{
-		printf("print list: %ld\n", stack->content);
-		stack = stack->next;
-	}
-}
+
