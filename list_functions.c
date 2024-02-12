@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:16 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/09 22:54:29 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:05:01 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	while (lst != NULL)
 	{
-		lst->index = i;
 		lst = lst->next;
 		i++;
 	}

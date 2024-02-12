@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:54:01 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/10 17:11:14 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:54:33 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_freemega(char **str);
 void	ft_freelst(t_list **lst);
 
 // ANALYZE ARGUMENTS FUNCTIONS
-int	ft_analyze_av(char *av);
+int	ft_analyze_av(char *av, int difference);
 long ft_atol(const char *nbr);
 int	arg_len(char **av);
 bool    is_dup(t_list **list);

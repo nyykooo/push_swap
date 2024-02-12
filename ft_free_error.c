@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:18:55 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/10 17:41:51 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:09:59 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,4 @@ void	ft_freelst(t_list **lst)
 			free(temp);
 		}
 	}
-	*lst = NULL;
-	free(lst);
 }

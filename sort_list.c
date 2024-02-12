@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:48:03 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/10 18:49:42 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:00:18 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,69 +120,35 @@ t_list	*find_bigger_or_smaller(t_list *list, int difference)
 
 void	index_stack(t_list **stack)
 {
+	t_list	*head;
+	int		index;
 
-	int		i;
-	long	min_found;
-	t_list	*min_elmt;
-
-	min_found = -2147483649;
-	i = 0;
-	while (i < ft_lstsize(*stack))
-	{
-		min_elmt = get_next_min(stack);
-		min_elmt->index = i;
-		min_found = min_elmt->content;
-		i++;
+	index = 0;
+	head = get_next_min(stack);
+	while (head)
+	{ 		
+		head->index = index++;
+		head = get_next_min(stack);
 	}
-	// t_list	*head;
-	// int		index;
-
-	// index = 0;
-	// head = get_next_min(stack);
-	// while (head)
-	// { 		
-	// 	head->index = index++;
-	// 	head = get_next_min(stack);
-	// }
 }
 
 t_list	*get_next_min(t_list **stack)
 {
-	t_list	*current;
-	t_list	*min_elmt;
-	int		min_found;
+	t_list	*head;
+	t_list	*min;
+	bool 	first_run;
 
-	if (!*stack)
-		return (0);
-	current = *stack;
-	min_found = 2147483647;
-	min_elmt = *stack;
-	while (current)
+	head = *stack;
+	first_run = true;
+	min = NULL;
+	while (head)
 	{
-		if (current->content > -2147483649 && current->content <= min_found)
+		if ((head->index == -1) && (first_run || head->content < min->content))
 		{
-			min_found = current->content;
-			min_elmt = current;
+			min = head;
+			first_run = false;
 		}
-		current = current->next;
+		head = head->next;
 	}
-	return (min_elmt);
-
-	// t_list	*head;
-	// t_list	*min;
-	// bool 	first_run;
-
-	// head = *stack;
-	// first_run = true;
-	// min = NULL;
-	// while (head)
-	// {
-	// 	if ((head->index == -1) && (first_run || head->content < min->content))
-	// 	{
-	// 		min = head;
-	// 		first_run = false;
-	// 	}
-	// 	head = head->next;
-	// }
-	// return (min);
+	return (min);
 }

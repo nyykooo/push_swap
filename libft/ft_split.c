@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:28:12 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/06 16:45:17 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:48:41 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (i > k)
 			array[j++] = ft_substr(s, (unsigned int)k, (size_t)i - k);
-		printf("array[%d] = %s\n", j - 1, array[j - 1]);
 	}
 	array[j] = NULL;
 	return (array);
