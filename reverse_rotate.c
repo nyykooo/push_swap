@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:32:20 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/12 18:05:37 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:40:56 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,23 @@
 
 void	reverse_rotate(t_list **stack)
 {
-	t_list *new_first;
+	t_list	*head;
+	t_list	*tail;
 
-    if (!(*stack) || (*stack)->next == NULL)
-    {
-        return ;
-    }
-	new_first = ft_lstlast(*stack);
-	new_first->prev->next = NULL;
-	new_first->prev = NULL;
-	new_first->next = (*stack);
-	*stack = new_first;
+	head = *stack;
+	tail = ft_lstlast(head);
+	while (head)
+	{
+		if (head->next->next == NULL)
+		{
+			 head->next = NULL;
+			 break ;
+		}
+		head = head->next;
+	}
+	tail->next = *stack;
+	*stack = tail;
+	return ;
     
 }
 

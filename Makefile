@@ -6,7 +6,7 @@
 #    By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 09:59:57 by ncampbel          #+#    #+#              #
-#    Updated: 2024/02/12 16:53:12 by ncampbel         ###   ########.fr        #
+#    Updated: 2024/02/13 12:19:06 by ncampbel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,17 @@ LIBFT= libft/libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJ)
-	cd libft && make
+	@ar -crs $(NAME) $(OBJ)
+	@cd libft && make && cd ..
 	$(CC) $(CFLAGS) $(NAME) $(LIBFT) -o $(EXEC)
 
 clean:
-	rm -f $(OBJ)
-	cd libft && make clean
+	@ rm -f $(OBJ)
+	@ cd libft && make clean && cd ..
 
 fclean: clean
-	rm -f $(NAME) $(EXEC)
-	cd libft && make fclean
+	@ rm -f $(NAME) $(EXEC)
+	@ cd libft && make fclean && cd ..
 
 re: fclean all
 
