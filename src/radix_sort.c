@@ -6,11 +6,11 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:30:39 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/12 14:47:54 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:42:50 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	get_max_bits(t_list **stack)
 {

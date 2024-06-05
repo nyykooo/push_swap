@@ -6,7 +6,7 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:28:12 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/12 14:48:41 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:04:16 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**ft_split(char const *s, char c)
 	int		k;
 
 	i = 0;
-	j = 1;
+	j = 0;
 	if (!s)
 		return (NULL);
 	array = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 2));

@@ -6,21 +6,22 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:48:03 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/12 18:00:18 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:42:50 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_list(t_list **list)
 {
-	t_list *stack_b;
+	t_list	*stack_b;
 
 	stack_b = NULL;
-	if (is_dup(list) == true)
-		ft_error(list);
-	else
-	if (ft_lstsize(*list) == 3)
+	if (is_sorted(*list) == true)
+		return ;
+	else if (ft_lstsize(*list) == 2 && !is_sorted(*list))
+		sa(list);
+	else if (ft_lstsize(*list) == 3)
 		sort_3(list);
 	else if (ft_lstsize(*list) == 4)
 		sort_4(list, &stack_b);
@@ -38,7 +39,7 @@ void	sort_list(t_list **list)
 
 void	sort_3(t_list **list)
 {
-	t_list *bigger;
+	t_list	*bigger;
 
 	bigger = find_bigger_or_smaller(*list, 1);
 	if (bigger == *list)
@@ -51,7 +52,7 @@ void	sort_3(t_list **list)
 
 void	sort_4(t_list **list_a, t_list **list_b)
 {
-	t_list *smaller;
+	t_list	*smaller;
 
 	smaller = find_bigger_or_smaller(*list_a, -1);
 	if (smaller == (*list_a)->next)
@@ -70,9 +71,9 @@ void	sort_4(t_list **list_a, t_list **list_b)
 	pa(list_a, list_b);
 }
 
-void   sort_5(t_list **list_a, t_list **list_b)
+void	sort_5(t_list **list_a, t_list **list_b)
 {
-	t_list *smaller;
+	t_list	*smaller;
 
 	smaller = find_bigger_or_smaller(*list_a, -1);
 	if (smaller == (*list_a)->next)
@@ -116,39 +117,4 @@ t_list	*find_bigger_or_smaller(t_list *list, int difference)
 		list = list->next;
 	}
 	return (bigger_or_smaller);
-}
-
-void	index_stack(t_list **stack)
-{
-	t_list	*head;
-	int		index;
-
-	index = 0;
-	head = get_next_min(stack);
-	while (head)
-	{ 		
-		head->index = index++;
-		head = get_next_min(stack);
-	}
-}
-
-t_list	*get_next_min(t_list **stack)
-{
-	t_list	*head;
-	t_list	*min;
-	bool 	first_run;
-
-	head = *stack;
-	first_run = true;
-	min = NULL;
-	while (head)
-	{
-		if ((head->index == -1) && (first_run || head->content < min->content))
-		{
-			min = head;
-			first_run = false;
-		}
-		head = head->next;
-	}
-	return (min);
 }

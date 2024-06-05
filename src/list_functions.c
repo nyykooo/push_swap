@@ -6,31 +6,31 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:49:16 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/12 15:05:01 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:42:50 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	lst_add(t_list **lst, long number)
 {
-    t_list	*new;
+	t_list	*new;
 
-    new = (t_list *)malloc(sizeof(t_list));
-    if (!new)
-    {
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+	{
 		ft_freelst(lst);
-		return;
+		return ;
 	}
 	new->content = number;
 	new->prev = NULL;
 	new->next = NULL;
 	new->index = -1;
 	if (!(*lst))
-    {
-        *lst = new;
-        return ;
-    }
+	{
+		*lst = new;
+		return ;
+	}
 	lst_add_back(lst, new);
 }
 
@@ -49,15 +49,15 @@ void	lst_add_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-    if (!new) 
-        return ;
-    if (!*lst)
-    {
-        *lst = new;
-        return ;
-    }
-    temp = ft_lstlast(*lst);
-    temp->next = new;
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 	new->prev = temp;
 }
 

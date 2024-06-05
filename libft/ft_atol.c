@@ -6,13 +6,13 @@
 /*   By: ncampbel <ncampbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:37:24 by ncampbel          #+#    #+#             */
-/*   Updated: 2024/02/03 14:38:32 by ncampbel         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:55:31 by ncampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-long		ft_atol(const char *nbr)
+long	ft_atol(const char *nbr)
 {
 	long	res;
 	int		signal;
@@ -26,7 +26,7 @@ long		ft_atol(const char *nbr)
 	}
 	else if (*nbr == 43)
 		nbr++;
-	while(*nbr >= 48 && *nbr <= 57)
+	while (*nbr >= 48 && *nbr <= 57)
 		res = res * 10 + (*nbr++ - 48);
 	return (res * signal);
 }
